@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <!--  全局配置  -->
+    <settings>
+        <!-- 将下划线转为驼峰 -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!-- 开启延迟加载功能 -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+    </settings>
+
+    <plugins>
+        <!-- 设置分页插件 -->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
+
+</configuration>
+
+        <!--
+    顺序：
+        properties, settings,
+        typeAliases, typeHandlers,
+        objectFactory,objectWrapperFactory, plugins, 
+        environments, databaseIdProvider, mappers
+    -->
