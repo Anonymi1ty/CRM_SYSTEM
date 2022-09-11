@@ -59,11 +59,11 @@
 				</div>
 				<div class="modal-body">
 					<div style="position: relative; left: 40px;">
-						姓名：<b>张三</b><br><br>
-						登录帐号：<b>zhangsan</b><br><br>
+						姓名：<b>[[${session.sessionUser.name}]]</b><br><br>
+						登录帐号：<b>[[${session.sessionUser.loginAct}]]</b><br><br>
 						组织机构：<b>1005，市场部，二级部门</b><br><br>
-						邮箱：<b>zhangsan@bjpowernode.com</b><br><br>
-						失效时间：<b>2017-02-14 10:10:10</b><br><br>
+						邮箱：<b>[[${session.sessionUser.email}]]</b><br><br>
+						失效时间：<b>[[${session.sessionUser.expireTime}]]</b><br><br>
 						允许访问IP：<b>127.0.0.1,192.168.100.2</b>
 					</div>
 				</div>
@@ -139,21 +139,21 @@
 	
 	<!-- 顶部 -->
 	<div id="top" style="height: 50px; background-color: #3C3C3C; width: 100%;">
-		<div style="position: absolute; top: 5px; left: 0px; font-size: 30px; font-weight: 400; color: white; font-family: 'times new roman'">CRM &nbsp;<span style="font-size: 12px;">&copy;2022&nbsp;动力节点</span></div>
-		<div style="position: absolute; top: 15px; right: 15px;">
-			<ul>
-				<li class="dropdown user-dropdown">
-					<a href="javascript:void(0)" style="text-decoration: none; color: white;" class="dropdown-toggle" data-toggle="dropdown">
-						<span class="glyphicon glyphicon-user"></span>[[${session.sessionUser.name}]]<span class="caret"></span>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a href="settings/index.html"><span class="glyphicon glyphicon-wrench"></span> 系统设置</a></li>
-						<li><a href="javascript:void(0)" data-toggle="modal" data-target="#myInformation"><span class="glyphicon glyphicon-file"></span> 我的资料</a></li>
-						<li><a href="javascript:void(0)" data-toggle="modal" data-target="#editPwdModal"><span class="glyphicon glyphicon-edit"></span> 修改密码</a></li>
-						<li><a href="javascript:void(0);" data-toggle="modal" data-target="#exitModal"><span class="glyphicon glyphicon-off"></span> 退出</a></li>
-					</ul>
-				</li>
-			</ul>
+		<div style="position: absolute; top: 5px; left: 0px; font-size: 30px; font-weight: 400; color: white; font-family: 'times new roman'">CRM &nbsp;<span style="font-size: 12px;">SYSTEM</span></div>
+		<div style="position: absolute; top: 15px; right: 65px;">
+						<ul>
+							<li class="dropdown user-dropdown">
+								<a href="javascript:void(0)" style="text-decoration: none; color: white;" class="dropdown-toggle" data-toggle="dropdown">
+									<span class="glyphicon glyphicon-user"></span>[[${session.sessionUser.name}]]<span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu">
+									<li><a href="settings/index.html"><span class="glyphicon glyphicon-wrench"></span> 系统设置</a></li>
+									<li><a href="javascript:void(0)" data-toggle="modal" data-target="#myInformation"><span class="glyphicon glyphicon-file"></span> 我的资料</a></li>
+									<li><a href="javascript:void(0)" data-toggle="modal" data-target="#editPwdModal"><span class="glyphicon glyphicon-edit"></span> 修改密码</a></li>
+									<li><a href="javascript:void(0);" data-toggle="modal" data-target="#exitModal"><span class="glyphicon glyphicon-off"></span> 退出</a></li>
+								</ul>
+							</li>
+						</ul>
 		</div>
 	</div>
 	
@@ -195,7 +195,7 @@
 			<div id="divider1" style="position: absolute; top : 0px; right: 0px; width: 1px; height: 100% ; background-color: #B3B3B3;"></div>
 		</div>
 		
-		<!-- 工作区 -->
+		<!-- 工作区页面  切割 -->
 		<div id="workarea" style="position: absolute; top : 0px; left: 18%; width: 82%; height: 100%;">
 			<iframe style="border-width: 0px; width: 100%; height: 100%;" name="workareaFrame"></iframe>
 		</div>

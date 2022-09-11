@@ -447,7 +447,7 @@
 <!--								  <option>lisi</option>-->
 <!--								  <option>wangwu</option>-->
 									<!--可以正常显示，但是爆红-->
-									<option th:each="user:${userList}" th:value="${user.id}" th:text="${user.name}"></option>
+									<option th:each="user:${users}" th:value="${user.id}" th:text="${user.name}"></option>
 								</select>
 							</div>
                             <label for="create-marketActivityName" class="col-sm-2 control-label">名称<span style="font-size: 15px; color: red;">*</span></label>
@@ -510,7 +510,7 @@
 							<label for="edit-marketActivityOwner" class="col-sm-2 control-label">所有者<span style="font-size: 15px; color: red;">*</span></label>
 							<div class="col-sm-10" style="width: 300px;">
 								<select class="form-control" id="edit-marketActivityOwner">
-									<option th:each="user:${userList}" th:value="${user.id}" th:text="${user.name}"></option>
+									<option th:each="user:${users}" th:value="${user.id}" th:text="${user.name}"></option>
 								</select>
 							</div>
                             <label for="edit-marketActivityName" class="col-sm-2 control-label">名称<span style="font-size: 15px; color: red;">*</span></label>

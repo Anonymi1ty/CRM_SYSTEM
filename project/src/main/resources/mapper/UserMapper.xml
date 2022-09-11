@@ -96,4 +96,10 @@
            createTime, create_by, edit_time, edit_by from tbl_user
     where login_act=#{loginAct} and login_pwd=#{loginPwd}
   </select>
+
+  <!--    List<User> selectAllUser();-->
+    <select id="selectAllUser" resultMap="BaseResultMap">
+        select id, login_act, name, login_pwd, email, expire_time, lock_state, deptno, allow_ips,
+             createTime, create_by, edit_time, edit_by from tbl_user
+    </select>
 </mapper>

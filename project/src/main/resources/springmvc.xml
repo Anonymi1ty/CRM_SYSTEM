@@ -42,4 +42,17 @@
     <!--配置文件上传解析器-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
 
+    <!--拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--拦截的请求-->
+            <mvc:mapping path="/settings/**"/>
+            <mvc:mapping path="/workbench/**"/>
+            <!--排除登录拦截的请求-->
+            <mvc:exclude-mapping path="/settings/qx/user/toLogin"/><!--除了登录请求-->
+            <mvc:exclude-mapping path="/settings/qx/user/login.do"/><!--除了登录验证请求-->
+            <bean class="interceptor.loginInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 </beans>

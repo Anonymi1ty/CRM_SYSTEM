@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pojo.User;
-import service.UserService;
+import service.settings.UserService;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,7 +39,7 @@ public class UserController {
      */
     @RequestMapping(value = "/settings/qx/user/login.do")
     @ResponseBody
-    public Object login(String loginAct, String loginPwd, String isRemPwd, HttpServletRequest request){
+    public Object login(String loginAct, String loginPwd, String isRemPwd, HttpServletRequest request, HttpSession session){
         //将返回值封装为map
         Map<String,Object> map = new HashMap<>();
         map.put("loginAct",loginAct);
@@ -71,10 +72,25 @@ public class UserController {
             }else {
                 //登录成功
                 returnObject.setCode(Constants.RETURN_OBJECT_CODE_SUCCESS);
+                //将用户信息存入session
+                session.setAttribute(Constants.SESSION_USER,user);
                 }
             }
             //将查询结果自动变为JSON格式存入session
             return returnObject;
     }
+
+    /**
+     * 跳转到登录页面
+     * @return
+     */
+    @RequestMapping(value = "/settings/qx/user/logout.do",method = RequestMethod.GET)
+    public String logout(HttpSession session){
+        //清除session
+        session.invalidate();
+        //重定向到登录页面
+        return "/settings/qx/user/login";
+    }
+
 
 }

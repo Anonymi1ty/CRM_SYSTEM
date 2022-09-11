@@ -52,4 +52,10 @@ public interface UserMapper {
      * @return user
      */
     User selectUserByUsernameAndPsw(Map<String,Object> map);
+
+    /**
+     * 查询所有用户
+     * @return 返回用户列表
+     */
+    List<User> selectAllUser();
 }
