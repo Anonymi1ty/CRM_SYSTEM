@@ -78,6 +78,7 @@
 					if (data.code == "1"){
 						//保存成功，
 						$("#createActivityModal").modal("hide");
+						//刷新页面，显示第一页数据，保持每页显示的条数不变
 						queryActivityByConditionForPage(1,$("#page").bs_pagination('getOption','rowsPerPage'));
 					}else {
 						alert(data.message);
@@ -90,9 +91,10 @@
 
 		/**
 		 * 日历插件  容器加载完后，对容器调用工具函数
+		 * datetimepicker为bootstrap的日历插件
 		 */
 		$(".mydate").datetimepicker({
-			language:'zh-CN',
+			language:'en',
 			format:'yyyy-mm-dd',
 			minView:'month',	//可选择的最小视图
 			initData:new Date(),	//初始化显示的时间
@@ -360,7 +362,7 @@
 		//var pageSize=10;
 		//发送请求
 		$.ajax({
-			url: 'workbench/activity/queryActivityByConditionForPage.do',
+			url: 'workbench/activity/queryActivityForPageByCondition.do',
 			data: {
 				name: name,
 				owner: owner,

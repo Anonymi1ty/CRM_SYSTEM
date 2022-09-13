@@ -1,6 +1,8 @@
 package mapper;
 
 import java.util.List;
+import java.util.Map;
+
 import pojo.Activity;
 
 public interface ActivityMapper {
@@ -40,5 +42,16 @@ public interface ActivityMapper {
      * 保存创建的市场活动
      */
     int insertActivity(Activity activity);
+
+    /**
+     * 根据条件分页查询市场活动
+     */
+    List<Activity> queryActivityForPageByCondition(Map<String,Object> map);
+
+    /**
+     * 根据条件查询市场活动的总条数
+     */
+    int selectCountOfActivityByCondition(Map<String,Object> map);
+
 
 }
